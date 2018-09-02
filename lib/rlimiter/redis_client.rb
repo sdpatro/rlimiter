@@ -29,7 +29,7 @@ module Rlimiter
     private
 
     def reset_time
-      self.start_time = Time.utc.to_f * 1000
+      self.start_time = Time.now.getutc.to_f * 1000
     end
 
     def start_time=(time)
