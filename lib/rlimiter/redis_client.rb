@@ -49,7 +49,7 @@ module Rlimiter
     end
 
     def start_time
-      @redis.hget(@key, START_TIME)
+      @redis.hget(@key, START_TIME).to_i
     end
   end
 end
