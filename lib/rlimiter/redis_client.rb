@@ -1,7 +1,9 @@
 require 'redis'
 
 module Rlimiter
+
   class RedisClient < Client
+
     RATE_COUNT = 'rate_count'.freeze
     START_TIME = 'start_time'.freeze
 
@@ -12,15 +14,12 @@ module Rlimiter
     def limit(key, count, duration)
       @key = key
       @duration = duration
-      curr_count_cache = curr_count
 
-      if curr_count_cache > count
+      if incr_count > count
         time_diff = @duration - elapsed
         time_diff > 0 && raise_limit_error(time_diff)
-        self.curr_count = 1
+        reset_count
         reset_time
-      else
-        self.curr_count = (curr_count_cache + 1)
       end
 
       yield
@@ -28,6 +27,14 @@ module Rlimiter
     end
 
     private
+
+    def reset_count
+      self.curr_count = 1
+    end
+
+    def incr_count
+      @redis.hincrby(@key, RATE_COUNT, 1)
+    end
 
     def raise_limit_error(time_diff)
       raise Rlimiter::LimitExceededError, time_diff
@@ -43,10 +50,6 @@ module Rlimiter
 
     def curr_count=(count)
       @redis.hset(@key, RATE_COUNT, count)
-    end
-
-    def curr_count
-      @redis.hget(@key, RATE_COUNT).to_i
     end
 
     def elapsed
