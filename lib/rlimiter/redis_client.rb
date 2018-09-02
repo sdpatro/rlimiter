@@ -15,7 +15,8 @@ module Rlimiter
       curr_count_cache = curr_count
 
       if curr_count_cache > count
-        raise LimitExceededError unless elapsed > @duration
+        time_diff = @duration - elapsed
+        time_diff > 0 && raise_limit_error(time_diff)
         self.curr_count = 1
         reset_time
       else
@@ -27,6 +28,10 @@ module Rlimiter
     end
 
     private
+
+    def raise_limit_error(time_diff)
+      raise Rlimiter::LimitExceededError, time_diff
+    end
 
     def reset_time
       self.start_time = Time.now.getutc.to_f * 1000
