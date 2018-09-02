@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     rlimiter (0.1.0)
+      redis (~> 4.0.2)
 
 GEM
   remote: https://rubygems.org/

@@ -45,7 +45,7 @@ module Rlimiter
     end
 
     def elapsed
-      ((Time.now * 1000 - start_time) / 1000).to_i
+      ((Time.now.to_f * 1000 - start_time) / 1000).to_i
     end
 
     def start_time
