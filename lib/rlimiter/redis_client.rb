@@ -7,8 +7,8 @@ module Rlimiter
     RATE_COUNT = 'rate_count'.freeze
     START_TIME = 'start_time'.freeze
 
-    def initialize
-      @redis = Redis.new(host: 'localhost', port: 6379)
+    def initialize(params)
+      @redis = Redis.new(params)
     end
 
     def limit(key, count, duration)

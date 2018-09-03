@@ -6,6 +6,21 @@ end
 
 module Rlimiter
   class << self
-    attr_reader :client
+    CLIENTS = %w[redis].freeze
+    attr_accessor :client
+
+    def init(params)
+      case params[:client]
+      when 'redis'
+        @client = RedisClient.new(params)
+      else
+        raise InvalidClientError, "Valid clients are #{CLIENTS.join(',')}"
+      end
+    end
+
+    def limit(*params)
+      client.limit(*params) { yield }
+    end
+
   end
 end
