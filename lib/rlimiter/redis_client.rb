@@ -16,13 +16,12 @@ module Rlimiter
       @duration = duration
 
       if incr_count > count
-        time_diff = @duration - elapsed
-        time_diff > 0 && raise_limit_error(time_diff)
+        return false if @duration - elapsed > 0
         reset_count
         reset_time
       end
 
-      yield
+      true
 
     end
 

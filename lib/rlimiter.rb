@@ -19,7 +19,7 @@ module Rlimiter
     end
 
     def limit(*params)
-      client.limit(*params) { yield }
+      client.limit(*params)
     end
 
   end
