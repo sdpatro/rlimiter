@@ -22,5 +22,13 @@ module Rlimiter
       client.limit(*params)
     end
 
+    def next_in(*params)
+      client.next_in(*params)
+    end
+
+    def current_count(*params)
+      client.current_count(*params)
+    end
+
   end
 end
