@@ -11,27 +11,25 @@ module Rlimiter
       @redis = Redis.new(params)
     end
 
-    def next_in(key, count, duration)
-      @key = key
-      @duration = duration
-      return 0 if current_count(key) <= count
-      @duration - elapsed
-    end
-
     def limit(key, count, duration)
       @key = key
       @duration = duration
-
       if incr_count > count
         return false if @duration - elapsed > 0
         reset
       end
-
       true
     end
 
     def current_count(key)
       @redis.hget(key, RATE_COUNT).to_i
+    end
+
+    def next_in(key, count, duration)
+      @key = key
+      @duration = duration
+      return 0 if current_count(key) <= count
+      @duration - elapsed
     end
 
     private
@@ -45,7 +43,7 @@ module Rlimiter
     end
 
     def elapsed
-      ((Time.now.to_f * 1000 - start_time) / 1000).to_i
+      ((Time.now.getutc.to_f * 1000 - start_time) / 1000).to_i
     end
 
     def start_time
