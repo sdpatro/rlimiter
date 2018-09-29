@@ -1,3 +1,3 @@
 module Rlimiter
-  VERSION = '0.1.8'.freeze
+  VERSION = '1.0.0'.freeze
 end
