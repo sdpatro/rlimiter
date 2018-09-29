@@ -63,12 +63,16 @@ module Rlimiter
     end
 
     # Gets the hit count for the key passed.
+    # @param [Integer] key
     def current_count(key)
       @redis.hget(key, RATE_COUNT).to_i
     end
 
     # Gets the ETA for the next window start only if the limit has been breached.
     # Returns 0 if the limit has not been breached.
+    # @param [String] key
+    # @param [Integer] count
+    # @param [Integer] duration
     def next_in(key, count, duration)
       @key = key
       @duration = duration
