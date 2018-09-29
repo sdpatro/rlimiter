@@ -1,3 +1,4 @@
+# Inherit the below class for custom implementations of any storage clients.
 module Rlimiter
   class Client
 
