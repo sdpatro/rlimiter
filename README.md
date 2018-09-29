@@ -1,8 +1,12 @@
 # Rlimiter
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/rlimiter`. To experiment with that code, run `bin/console` for an interactive prompt.
+Rlimiter is a simple rate limiting client for Ruby (not limited to RoR!).
 
-TODO: Delete this and the text above, and describe your gem
+The fundamental idea behind this client is to limit the number of hits of any code within the application. Hence it is not
+only limited to API rate limiting, instead can be used in all sorts of scenarios that require circumstantial throttling of throughput.
+
+It currently uses Redis as the main storage client for storing the necessary keys, provided it's fast IO operations and ubiquity in web applications. It is written
+in a manner to effortlessly extend and implement custom storage clients as required.
 
 ## Installation
 
@@ -99,6 +103,12 @@ end
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+
+### TODOs:
+
+1. Write specs for 100% code coverage.
+2. Integrate Travis. 
+3. Push to rubygems.org
 
 ## Contributing
 
