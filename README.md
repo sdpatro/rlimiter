@@ -107,8 +107,9 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 ### TODOs:
 
 1. Write specs for 100% code coverage.
-2. Integrate Travis. 
-3. Push to rubygems.org
+2. Add benchmarks.
+3. Integrate Travis. 
+4. Push to rubygems.org.
 
 ## Contributing
 
