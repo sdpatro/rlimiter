@@ -1,3 +1,5 @@
+![alt text](https://badge.fury.io/rb/rlimiter.svg)
+
 # Rlimiter
 
 Rlimiter is a simple rate limiting client for Ruby (not limited to RoR!).
