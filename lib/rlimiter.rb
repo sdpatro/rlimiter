@@ -8,7 +8,7 @@ require_files.each do |file|
 end
 
 # Module which is single-instantiated in the application via :init.
-module Rlimiterclass InvalidClientError < RuntimeError
+module Rlimiter
   class << self
 
     # At the moment only redis client is supported.
