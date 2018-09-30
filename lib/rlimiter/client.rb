@@ -10,7 +10,7 @@ module Rlimiter
       # Stub
     end
 
-    def current_count
+    def current_count(key)
       # Stub
     end
 

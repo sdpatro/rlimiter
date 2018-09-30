@@ -30,7 +30,7 @@ module Rlimiter
     # @return [Redis]
     #
     def initialize(params)
-      @redis = Redis.new(params.deep_symbolize_keys)
+      @redis = Redis.new(params)
     end
 
     # Registers a hit corresponding to the key specified, requires the max hit count and the duration to be passed.
@@ -76,8 +76,8 @@ module Rlimiter
     def next_in(key, count, duration)
       @key = key
       @duration = duration
-      return 0 if current_count(key) <= count
-      @duration - elapsed
+      return 0 if current_count(key) < count
+      [@duration - elapsed, 0].max
     end
 
     private
@@ -91,7 +91,7 @@ module Rlimiter
     end
 
     def elapsed
-      ((Time.now.getutc.to_f * 1000 - start_time) / 1000).to_i
+      ((Time.now.getutc.to_time.to_i * 1000 - start_time) / 1000).to_i
     end
 
     def start_time

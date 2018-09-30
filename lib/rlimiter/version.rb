@@ -1,3 +1,5 @@
 module Rlimiter
-  VERSION = '1.0.2'.freeze
+  #:nocov:
+  VERSION = '1.0.3'.freeze
+  #:nocov:
 end
