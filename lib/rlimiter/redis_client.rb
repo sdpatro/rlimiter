@@ -76,7 +76,7 @@ module Rlimiter
     def next_in(key, count, duration)
       @key = key
       @duration = duration
-      return 0 if current_count(key) <= count
+      return 0 if current_count(key) < count
       [@duration - elapsed, 0].max
     end
 
