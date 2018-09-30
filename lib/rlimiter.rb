@@ -13,7 +13,7 @@ module Rlimiter
 
     # At the moment only redis client is supported.
     CLIENTS = %w[redis].freeze
-    attr_accessor :client
+    attr_reader :client
 
     # One time initializes the client which is to be used throughout the application.
     # The value of params variable will change depending on the storage client to be initialized.
