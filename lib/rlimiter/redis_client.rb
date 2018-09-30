@@ -77,7 +77,7 @@ module Rlimiter
       @key = key
       @duration = duration
       return 0 if current_count(key) <= count
-      @duration - elapsed
+      [@duration - elapsed, 0].max
     end
 
     private
