@@ -65,8 +65,8 @@ A more complicated approach could also be implemented :
     @phone_number = '2947126943'
     @limit_key = generate_limit_key
     @limit_count = fetch_limit_count
-    limit_breached = Rlimiter.limit(@limit_key, @limit_count, DEFAULT_LIMIT_DURATION)
-    unless limit_breached
+    limit_not_breached = Rlimiter.limit(@limit_key, @limit_count, DEFAULT_LIMIT_DURATION)
+    if limit_not_breached
       {
         :status_code => 200,
         :otp_dispatch_status => send_mobile_otp,
