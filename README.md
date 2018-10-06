@@ -2,6 +2,7 @@
 ![Build Status](https://travis-ci.org/sdpatro/rlimiter.svg?branch=master)
 [![Maintainability](https://api.codeclimate.com/v1/badges/874030f97b114be832d3/maintainability)](https://codeclimate.com/github/sdpatro/rlimiter/maintainability)
 [![Coverage Status](https://coveralls.io/repos/github/sdpatro/rlimiter/badge.svg)](https://coveralls.io/github/sdpatro/rlimiter)
+![Total downloads](https://ruby-gem-downloads-badge.herokuapp.com/rlimiter?type=total)
 
 # Rlimiter
 
