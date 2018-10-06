@@ -1,4 +1,6 @@
-![alt text](https://badge.fury.io/rb/rlimiter.svg)
+![Gem Version](https://badge.fury.io/rb/rlimiter.svg)
+![Build Status](https://travis-ci.org/sdpatro/rlimiter.svg?branch=master)
+[![Maintainability](https://api.codeclimate.com/v1/badges/874030f97b114be832d3/maintainability)](https://codeclimate.com/github/sdpatro/rlimiter/maintainability)
 
 # Rlimiter
 
