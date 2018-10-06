@@ -1,6 +1,7 @@
 ![Gem Version](https://badge.fury.io/rb/rlimiter.svg)
 ![Build Status](https://travis-ci.org/sdpatro/rlimiter.svg?branch=master)
 [![Maintainability](https://api.codeclimate.com/v1/badges/874030f97b114be832d3/maintainability)](https://codeclimate.com/github/sdpatro/rlimiter/maintainability)
+[![Coverage Status](https://coveralls.io/repos/github/sdpatro/rlimiter/badge.svg)](https://coveralls.io/github/sdpatro/rlimiter)
 
 # Rlimiter
 
@@ -110,9 +111,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ### TODOs:
 
-1. Write specs for 100% code coverage.
-2. Add benchmarks.
-3. Integrate Travis.
+1. Add benchmarks.
 
 ## Contributing
 
