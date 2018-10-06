@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rlimiter (1.0.3)
+    rlimiter (1.0.4)
       redis (~> 4.0, >= 4.0.2)
 
 GEM
