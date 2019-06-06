@@ -14,5 +14,9 @@ module Rlimiter
       # Stub
     end
 
+    def clear(key)
+      # Stub
+    end
+
   end
 end

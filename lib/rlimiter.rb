@@ -1,9 +1,8 @@
 require 'rlimiter/version'
 
-# It is important that the files are loaded in the order specified below because of inheritance dependencies.
-# TODO: Figure out a better way to load
-require_files = %w[/rlimiter/client.rb /rlimiter/invalid_client_error.rb /rlimiter/version.rb /rlimiter/redis_client.rb]
-require_files.each do |file|
+# It is important that the files are loaded in the order specified below because of
+# inheritance dependencies.
+%w[/rlimiter/client.rb /rlimiter/invalid_client_error.rb /rlimiter/version.rb /rlimiter/redis_client.rb].each do |file|
   Dir.glob(File.dirname(File.absolute_path(__FILE__)) + file, &method(:require))
 end
 
@@ -15,8 +14,10 @@ module Rlimiter
     CLIENTS = %w[redis].freeze
     attr_reader :client
 
-    # One time initializes the client which is to be used throughout the application.
-    # The value of params variable will change depending on the storage client to be initialized.
+    # One time initializes the client which is to be used throughout the
+    # application. The value of params variable will change depending on the
+    # storage client to be initialized.
+    #
     # @param [Hash] params
     # @return [Rlimiter::Client]
     def init(params)
@@ -28,8 +29,9 @@ module Rlimiter
       end
     end
 
-    # Note : Params for the below methods are kept arbitrary for free implementation and are specific to a single client,
-    # after usage feedback it will be refactored to pertain to a single signature.
+    # Note : Params for the below methods are kept arbitrary for free
+    # implementation and are specific to a single client, after usage feedback
+    # it will be refactored to pertain to a single signature.
 
     # Register a hit to the client.
     def limit(*params)
